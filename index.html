@@ -18,7 +18,7 @@
         :root {
             --color-primary: #1a1a1a;
             --color-secondary: #2c3e50;
-            --color-accent: #c9a962;
+            --color-accent: #c9a962; /* Dourado Luxuoso */
             --color-bg: #faf9f7;
             --color-bg-dark: #f0eee9;
             --color-text: #4a4a4a;
@@ -33,6 +33,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Para iOS especificamente, às vezes precisa disso também: */
+        input, button, a, .btn-primary {
+            outline: none;
+            -webkit-appearance: none;
         }
 
         html {
@@ -69,6 +75,7 @@
             z-index: 1000;
             transition: var(--transition);
             padding: 2rem 0;
+            background: rgba(26, 26, 26, 0.2); /* Começa transparente */
         }
 
         header.scrolled {
@@ -98,14 +105,14 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--color-white);
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--color-white);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--color-white);
             transition: var(--transition);
         }
@@ -126,21 +133,24 @@
 
         .logo-text h1 {
             font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
             letter-spacing: 1px;
+            line-height: 1;
         }
 
         .logo-text span {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             opacity: 0.8;
+            display: block;
+            margin-top: 3px;
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
@@ -148,7 +158,7 @@
         .nav-links a {
             text-decoration: none;
             color: var(--color-white);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -179,9 +189,9 @@
             background: transparent;
             border: 1px solid var(--color-white);
             color: var(--color-white);
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 2rem;
             font-family: var(--font-sans);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -217,7 +227,7 @@
         .mobile-menu {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
             z-index: 1001;
         }
@@ -233,59 +243,40 @@
             background: var(--color-primary);
         }
 
-        /* Hero Section */
+        /* Hero Section - ALTERADO: Fundo Neutro */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
             display: flex;
             align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(44,62,80,0.8) 100%);
-            z-index: 1;
-        }
-
-        .hero-bg img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
+            /* Fundo neutro e elegante (escuro) */
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #222222 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 800px;
             color: var(--color-white);
         }
 
         .hero-subtitle {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.5s;
-            color: var(--color-accent);
         }
 
         .hero-title {
             font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 0.8s;
@@ -297,14 +288,15 @@
         }
 
         .hero-text {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            max-width: 600px;
-            margin-bottom: 3rem;
+            max-width: 550px;
+            margin-bottom: 2.5rem;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 1.1s;
             line-height: 1.8;
+            color: rgba(255,255,255,0.8);
         }
 
         .hero-cta {
@@ -313,43 +305,43 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s forwards 1.4s;
+            flex-wrap: wrap;
         }
 
         .btn-hero {
-            padding: 1.25rem 3rem;
-            font-size: 0.85rem;
+            padding: 1.1rem 2.5rem;
         }
 
         .btn-outline-light {
-            border-color: var(--color-white);
+            border-color: rgba(255,255,255,0.4);
             color: var(--color-white);
         }
 
         .btn-outline-light:hover {
+            border-color: var(--color-white);
             background: var(--color-white);
             color: var(--color-primary);
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 3rem;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            color: var(--color-white);
-            font-size: 0.75rem;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.65rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            opacity: 0;
-            animation: fadeIn 1s forwards 2s;
         }
 
         .scroll-indicator i {
             animation: bounce 2s infinite;
+            font-size: 0.8rem;
         }
 
         @keyframes fadeUp {
@@ -359,36 +351,24 @@
             }
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(10px);
-            }
-            60% {
-                transform: translateY(5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(5px); }
+            60% { transform: translateY(3px); }
         }
 
         /* Section General */
         section {
-            padding: 8rem 0;
+            padding: 6rem 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
 
         .section-tag {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-accent);
@@ -398,29 +378,34 @@
 
         .section-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 3vw, 3rem);
             font-weight: 300;
             color: var(--color-primary);
             line-height: 1.2;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--color-text-light);
             max-width: 700px;
             margin: 1.5rem auto 0;
             font-weight: 300;
         }
 
-        /* About Section */
-        .about {
-            background: var(--color-bg-dark);
+        .about-image img {
+            width: 100%;
+            height: 100%; /* Ocupa o espaço todo */
+            max-height: 650px; /* Mantém o limite para não ficar gigante */
+            object-fit: cover; /* Mantém o preenchimento */
+            object-position: top center; /* Foca no rosto/cabeça, cortando os pés se necessário, mas salvando a identidade */
+            filter: grayscale(10%);
+            box-shadow: 10px 10px 0 var(--color-accent);
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: 5rem;
             align-items: center;
         }
 
@@ -430,25 +415,15 @@
 
         .about-image img {
             width: 100%;
-            height: 700px;
+            max-height: 650px;
             object-fit: cover;
-            filter: grayscale(20%);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: -30px;
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--color-accent);
-            z-index: -1;
+            filter: grayscale(10%);
+            box-shadow: 10px 10px 0 var(--color-accent); /* Detalhe fino */
         }
 
         .about-content h2 {
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 3vw, 3rem);
+            font-size: clamp(1.8rem, 2.5vw, 2.5rem);
             font-weight: 300;
             margin-bottom: 2rem;
             line-height: 1.3;
@@ -456,26 +431,27 @@
 
         .about-content p {
             margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
         .about-signature {
-            margin-top: 3rem;
-            padding-top: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(0,0,0,0.1);
         }
 
         .about-signature p {
             font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-style: italic;
             color: var(--color-secondary);
+            margin-bottom: 0.5rem;
         }
 
         .about-signature span {
             font-family: var(--font-sans);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--color-text-light);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -486,70 +462,43 @@
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
-            padding: 10rem 0;
+            padding: 6rem 0;
         }
 
         .video-section h2 {
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-size: clamp(1.8rem, 2.5vw, 2.5rem);
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .video-container {
-            position: relative;
-            max-width: 900px;
+        .video-wrapper {
+            max-width: 800px;
             margin: 0 auto;
-            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        .video-thumbnail {
+        .video-wrapper video {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 2px;
-        }
-
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 100px;
-            background: var(--color-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .video-play-btn:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            background: var(--color-accent);
-        }
-
-        .video-play-btn i {
-            color: var(--color-primary);
-            font-size: 2rem;
-            margin-left: 5px;
+            height: auto;
+            display: block;
         }
 
         /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .service-card {
             position: relative;
             overflow: hidden;
-            height: 500px;
+            height: 400px;
             cursor: pointer;
-            group: true;
+            background: #eee;
         }
 
         .service-card img {
@@ -560,7 +509,7 @@
         }
 
         .service-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .service-overlay {
@@ -569,9 +518,9 @@
             left: 0;
             right: 0;
             background: linear-gradient(to top, rgba(26,26,26,0.95) 0%, transparent 100%);
-            padding: 3rem 2rem 2rem;
+            padding: 2rem;
             color: var(--color-white);
-            transform: translateY(20px);
+            transform: translateY(10px);
             transition: var(--transition);
         }
 
@@ -581,47 +530,26 @@
 
         .service-overlay h3 {
             font-family: var(--font-serif);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 400;
             margin-bottom: 0.5rem;
         }
 
         .service-overlay p {
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: var(--transition);
-            transition-delay: 0.1s;
-        }
-
-        .service-card:hover .service-overlay p {
-            opacity: 1;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
         }
 
         .service-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--color-accent);
             text-decoration: none;
-            opacity: 0;
-            transition: var(--transition);
-            transition-delay: 0.2s;
-        }
-
-        .service-card:hover .service-link {
-            opacity: 1;
-        }
-
-        .service-link i {
-            transition: var(--transition);
-        }
-
-        .service-link:hover i {
-            transform: translateX(5px);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Symptoms Section */
@@ -632,81 +560,123 @@
         .symptoms-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .symptom-item {
             display: flex;
-            gap: 2rem;
-            padding: 2.5rem;
+            gap: 1.5rem;
+            padding: 2rem;
             background: var(--color-white);
             transition: var(--transition);
-            cursor: pointer;
+            border-left: 2px solid transparent;
         }
 
         .symptom-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-left: 2px solid var(--color-accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .symptom-number {
             font-family: var(--font-serif);
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--color-accent);
-            opacity: 0.3;
+            opacity: 0.4;
             line-height: 1;
         }
 
         .symptom-content h3 {
             font-family: var(--font-serif);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 400;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             color: var(--color-primary);
         }
 
         .symptom-content p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--color-text-light);
-            line-height: 1.7;
+        }
+
+        /* Locations Section */
+        .locations {
+            background: var(--color-white);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .location-card {
+            padding: 2rem;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .location-card:hover {
+            border-color: var(--color-accent);
+        }
+
+        .location-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .location-card .city {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--color-primary);
+        }
+
+        .location-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .location-card .insta {
+            margin-top: 1rem;
+            display: inline-block;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
         /* Process Section */
         .process-steps {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             gap: 2rem;
             position: relative;
         }
 
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--color-accent), transparent);
-            opacity: 0.3;
-        }
-
         .step {
             flex: 1;
+            min-width: 200px;
             text-align: center;
-            position: relative;
         }
 
         .step-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: var(--color-white);
             border: 1px solid var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+            font-size: 1.2rem;
             color: var(--color-accent);
             transition: var(--transition);
         }
@@ -714,57 +684,40 @@
         .step:hover .step-icon {
             background: var(--color-accent);
             color: var(--color-white);
-            transform: scale(1.1);
         }
 
         .step h3 {
             font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .step p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--color-text-light);
-            line-height: 1.7;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            background: var(--color-secondary);
             color: var(--color-white);
             text-align: center;
-            padding: 10rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: var(--color-accent);
-            opacity: 0.05;
-            border-radius: 50%;
+            padding: 6rem 0;
         }
 
         .cta-section h2 {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 300;
-            margin-bottom: 1.5rem;
-            position: relative;
+            margin-bottom: 1rem;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
             max-width: 600px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2rem;
             opacity: 0.9;
         }
 
@@ -772,35 +725,35 @@
         footer {
             background: var(--color-primary);
             color: var(--color-white);
-            padding: 5rem 0 2rem;
+            padding: 4rem 0 1.5rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 4rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-brand .logo-text {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .footer-brand p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 2rem;
+            opacity: 0.7;
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .social-links a {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border: 1px solid rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
@@ -813,14 +766,13 @@
         .social-links a:hover {
             background: var(--color-accent);
             border-color: var(--color-accent);
-            transform: translateY(-3px);
         }
 
         .footer-column h4 {
             font-family: var(--font-serif);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 400;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--color-accent);
         }
 
@@ -829,14 +781,14 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-column ul li a {
             color: var(--color-white);
             text-decoration: none;
-            opacity: 0.8;
-            font-size: 0.9rem;
+            opacity: 0.7;
+            font-size: 0.85rem;
             transition: var(--transition);
         }
 
@@ -847,7 +799,7 @@
 
         .contact-info p {
             font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             opacity: 0.8;
             display: flex;
             align-items: flex-start;
@@ -856,17 +808,15 @@
 
         .contact-info i {
             color: var(--color-accent);
-            margin-top: 3px;
+            margin-top: 4px;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            opacity: 0.7;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
         }
 
         /* WhatsApp Float */
@@ -874,16 +824,16 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background: #25d366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-white);
-            font-size: 2rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
             cursor: pointer;
             transition: var(--transition);
             z-index: 999;
@@ -891,8 +841,7 @@
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+            transform: scale(1.1);
         }
 
         /* Animations on Scroll */
@@ -909,25 +858,14 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .about-grid,
-            .symptoms-grid {
+            .about-grid, .symptoms-grid {
                 grid-template-columns: 1fr;
             }
-
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .process-steps {
-                flex-direction: column;
-            }
-
-            .process-steps::before {
-                display: none;
-            }
-
             .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -938,44 +876,33 @@
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background: var(--color-white);
+                background: var(--color-primary);
                 flex-direction: column;
                 justify-content: center;
                 gap: 2rem;
                 transition: var(--transition);
             }
-
             .nav-links.active {
                 right: 0;
             }
-
             .nav-links a {
-                color: var(--color-primary);
-                font-size: 1.5rem;
+                color: var(--color-white) !important;
+                font-size: 1.2rem;
             }
-
             .mobile-menu {
                 display: flex;
             }
-
             .hero-cta {
                 flex-direction: column;
             }
-
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-
             .container {
                 padding: 0 1.5rem;
-            }
-
-            section {
-                padding: 5rem 0;
             }
         }
     </style>
@@ -998,10 +925,9 @@
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sintomas">Sintomas</a></li>
-                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#locais">Locais</a></li>
                     <li><a href="#contato">Contato</a></li>
-                    <li><a href="https://wa.me/5581999999999" class="btn-primary">Agendar Avaliação</a></li>
+                    <li><a href="https://wa.me/5581995752214" class="btn-primary btn-filled">Agendar</a></li>
                 </ul>
 
                 <div class="mobile-menu" id="mobileMenu">
@@ -1013,18 +939,15 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Fundo Neutro) -->
     <section class="hero" id="inicio">
-        <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1920&h=1080&fit=crop" alt="Medical Background">
-        </div>
         <div class="container">
             <div class="hero-content">
                 <p class="hero-subtitle">Excelência em Saúde Vascular</p>
                 <h1 class="hero-title">Cuidado vascular com <em>precisão</em> e olhar <em>individualizado</em></h1>
                 <p class="hero-text">Avaliação, diagnóstico e acompanhamento em saúde vascular para pacientes que buscam segurança, clareza e uma conduta bem definida.</p>
                 <div class="hero-cta">
-                    <a href="https://wa.me/5581999999999" class="btn-primary btn-hero btn-filled">
+                    <a href="https://wa.me/5581995752214" class="btn-primary btn-hero btn-filled">
                         <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Agendar Avaliação
                     </a>
                     <a href="#sobre" class="btn-primary btn-hero btn-outline-light">Conhecer o Médico</a>
@@ -1042,14 +965,14 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image reveal">
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop" alt="Dr. Waldenio Barros">
+                    <!-- IMAGEM DO CLIENTE: dr.jpg -->
+                    <img src="dr.jpg" alt="Dr. Waldenio Barros">
                 </div>
                 <div class="about-content reveal">
                     <span class="section-tag">Sobre o Médico</span>
                     <h2>Atendimento vascular com foco em diagnóstico preciso e decisão segura</h2>
                     <p>Cada paciente chega com um contexto diferente, sintomas diferentes e necessidades próprias. Por isso, a avaliação vascular precisa ir além de uma análise superficial.</p>
                     <p>O objetivo é compreender o quadro com precisão e indicar a melhor condução para cada caso, unindo ciência, experiência, tecnologia e muito comprometimento.</p>
-                    <p>Especialista em Cirurgia Vascular com atuação clínica e ecográfica, atendo em Pernambuco e Paraíba com uma abordagem criteriosa e individualizada.</p>
                     
                     <div class="about-signature">
                         <p>Dr. Waldenio Barros</p>
@@ -1063,91 +986,25 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="container">
-            <span class="section-tag" style="color: var(--color-accent);">Conheça Minha Abordagem</span>
+            <span class="section-tag">Conheça Minha Abordagem</span>
             <h2>Assista e entenda como posso ajudar você</h2>
-            <div class="video-container" onclick="playVideo()">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&h=500&fit=crop" alt="Video Thumbnail" class="video-thumbnail">
-                <div class="video-play-btn">
-                    <i class="fas fa-play"></i>
-                </div>
+            <div class="video-wrapper reveal">
+                <!-- VIDEO DO CLIENTE: video.mp4 -->
+                <video controls poster="video-thumb.jpg">
+                    <source src="video.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="servicos">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Áreas de Atuação</span>
-                <h2 class="section-title">Atuação em saúde vascular</h2>
-                <p class="section-subtitle">Da avaliação inicial à conduta cirúrgica, com critério em cada etapa.</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=800&fit=crop" alt="Consulta Vascular">
-                    <div class="service-overlay">
-                        <h3>Consulta Vascular</h3>
-                        <p>Avaliação clínica criteriosa para definir conduta com segurança.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=800&fit=crop" alt="Ultrassom Vascular">
-                    <div class="service-overlay">
-                        <h3>Ultrassom Vascular</h3>
-                        <p>Investigação por imagem para diagnóstico vascular preciso.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1551190862-9c8f34d6a76f?w=600&h=800&fit=crop" alt="Tratamento de Varizes">
-                    <div class="service-overlay">
-                        <h3>Tratamento de Varizes</h3>
-                        <p>Avaliação completa do quadro venoso e do impacto na rotina.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&h=800&fit=crop" alt="Procedimentos Vasculares">
-                    <div class="service-overlay">
-                        <h3>Procedimentos Vasculares</h3>
-                        <p>Indicação técnica conforme o quadro de cada paciente.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1584982751600-0f2944db13b0?w=600&h=800&fit=crop" alt="Acompanhamento de Feridas">
-                    <div class="service-overlay">
-                        <h3>Acompanhamento de Feridas</h3>
-                        <p>Investigação da causa e cuidado contínuo da cicatrização.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="service-card reveal">
-                    <img src="https://images.unsplash.com/photo-1551190862-9c8f34d6a76f?w=600&h=800&fit=crop" alt="Cirurgia Vascular">
-                    <div class="service-overlay">
-                        <h3>Cirurgia Vascular</h3>
-                        <p>Conduta cirúrgica indicada quando há critério clínico.</p>
-                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Symptoms Section -->
-    <section class="symptoms" id="sintomas">
+    <section class="symptoms">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">Sinais de Alerta</span>
                 <h2 class="section-title">Seu corpo costuma dar sinais antes do problema avançar</h2>
-                <p class="section-subtitle">Peso nas pernas, inchaço recorrente, desconforto ao fim do dia, veias aparentes e feridas de difícil cicatrização são sinais que merecem atenção.</p>
             </div>
 
             <div class="symptoms-grid">
@@ -1155,7 +1012,7 @@
                     <div class="symptom-number">01</div>
                     <div class="symptom-content">
                         <h3>Peso e cansaço nas pernas</h3>
-                        <p>Sensação que se intensifica ao longo do dia, especialmente após longos períodos em pé ou sentado.</p>
+                        <p>Sensação que se intensifica ao longo do dia.</p>
                     </div>
                 </div>
 
@@ -1163,7 +1020,7 @@
                     <div class="symptom-number">02</div>
                     <div class="symptom-content">
                         <h3>Inchaço recorrente</h3>
-                        <p>Especialmente em tornozelos e ao final do dia, indicando possível comprometimento circulatório.</p>
+                        <p>Especialmente em tornozelos e ao final do dia.</p>
                     </div>
                 </div>
 
@@ -1171,7 +1028,7 @@
                     <div class="symptom-number">03</div>
                     <div class="symptom-content">
                         <h3>Veias aparentes ou tortuosas</h3>
-                        <p>Mudanças visíveis no padrão venoso que podem indicar insuficiência venosa.</p>
+                        <p>Mudanças visíveis no padrão venoso.</p>
                     </div>
                 </div>
 
@@ -1179,24 +1036,85 @@
                     <div class="symptom-number">04</div>
                     <div class="symptom-content">
                         <h3>Desconforto ou dor localizada</h3>
-                        <p>Que interfere na rotina e no sono, sinalizando necessidade de avaliação.</p>
+                        <p>Que interfere na rotina e no sono.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="symptom-item reveal">
-                    <div class="symptom-number">05</div>
-                    <div class="symptom-content">
-                        <h3>Feridas que não cicatrizam</h3>
-                        <p>Cicatrização lenta exige investigação vascular adequada.</p>
-                    </div>
+    <!-- LOCATIONS SECTION (NOVO) -->
+    <section class="locations" id="locais">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Onde Atendemos</span>
+                <h2 class="section-title">Locais de Atendimento</h2>
+                <p class="section-subtitle">Encontre a clínica mais próxima de você.</p>
+            </div>
+
+            <div class="locations-grid">
+                <!-- 1. Campina Grande -->
+                <div class="location-card reveal">
+                    <h3>Renovasc</h3>
+                    <span class="city">Campina Grande / PB</span>
+                    <p>Irneu Joffily, 289<br>58400270</p>
+                    <a href="https://instagram.com/renovasclinica" class="insta">@renovasclinica</a>
                 </div>
 
-                <div class="symptom-item reveal">
-                    <div class="symptom-number">06</div>
-                    <div class="symptom-content">
-                        <h3>Cãibras frequentes</h3>
-                        <p>Especialmente noturnas, podem estar relacionadas à circulação.</p>
-                    </div>
+                <!-- 2. Igarassu -->
+                <div class="location-card reveal">
+                    <h3>Clínica Dr. Rovésio Pardellas</h3>
+                    <span class="city">Igarassu / PE</span>
+                    <p>Unidade 1: Av. Santina Gomes de Andrade, 05 - Centro</p>
+                    <p>Unidade 2: Av. Barão de Vera Cruz, 558 - Cruz de Rebouças</p>
+                </div>
+
+                <!-- 3. Condado -->
+                <div class="location-card reveal">
+                    <h3>Clínica São José</h3>
+                    <span class="city">Condado / PE</span>
+                    <p>Avenida 7 de Setembro, 191, Centro</p>
+                    <a href="https://instagram.com/clinica_saojose01" class="insta">@clinica_saojose01</a>
+                </div>
+
+                <!-- 4. Nazaré da Mata -->
+                <div class="location-card reveal">
+                    <h3>AME Nazaré</h3>
+                    <span class="city">Nazaré da Mata / PE</span>
+                    <p>Praça Valfredo Coutinho, 1202, Centro</p>
+                    <a href="https://instagram.com/ame.saude" class="insta">@ame.saude</a>
+                </div>
+
+                <!-- 5. Paudalho -->
+                <div class="location-card reveal">
+                    <h3>AME Paudalho</h3>
+                    <span class="city">Paudalho / PE</span>
+                    <p>Rua Dr. José Mariano, 13, Centro</p>
+                    <a href="https://instagram.com/ame_paudalho" class="insta">@ame_paudalho</a>
+                </div>
+
+                <!-- 6. Carpina -->
+                <div class="location-card reveal">
+                    <h3>Cemec</h3>
+                    <span class="city">Carpina / PE</span>
+                    <p>Avenida Congresso Eucarístico Internacional, 148B, Santa Cruz</p>
+                    <a href="https://instagram.com/cemeccarpina" class="insta">@cemeccarpina</a>
+                </div>
+
+                <!-- 7. João Alfredo -->
+                <div class="location-card reveal">
+                    <h3>Memorial Dr. Fernando Calixto</h3>
+                    <span class="city">João Alfredo / PE</span>
+                    <p>Rua Treze de Maio, 179, Raul Soares</p>
+                    <a href="https://instagram.com/clinicamemorialdr_fernandoclxt" class="insta">@clinicamemorialdr_fernandoclxt</a>
+                </div>
+
+                <!-- 8. Afogados da Ingazeira -->
+                <div class="location-card reveal">
+                    <h3>Dominus Vita</h3>
+                    <span class="city">Afogados da Ingazeira / PE</span>
+                    <p>Rua Senador Paulo Guerra, 309, Centro</p>
+                    <a href="https://instagram.com/grupodominusvita" class="insta">@grupodominusvita</a>
                 </div>
             </div>
         </div>
@@ -1208,63 +1126,29 @@
             <div class="section-header reveal">
                 <span class="section-tag">Jornada do Paciente</span>
                 <h2 class="section-title">Quais os próximos passos?</h2>
-                <p class="section-subtitle">Não adianta tratar suas varizes com sessões isoladas e sem diagnóstico preciso. Para ter sucesso no seu tratamento, precisamos seguir alguns passos indispensáveis.</p>
             </div>
 
             <div class="process-steps">
                 <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>01. Consulta</h3>
-                    <p>Consulta com duração de 1 hora para te conhecer e entender seu caso.</p>
+                    <div class="step-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Consulta</h3>
+                    <p>Avaliação de 1 hora para entender seu caso.</p>
                 </div>
-
                 <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-clipboard-list"></i>
-                    </div>
-                    <h3>02. Avaliação</h3>
-                    <p>Avaliação detalhada de todas as suas varizes e vasinhos superficiais.</p>
+                    <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Avaliação</h3>
+                    <p>Análise detalhada de varizes e vasinhos.</p>
                 </div>
-
                 <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <h3>03. Diagnóstico</h3>
-                    <p>Diagnóstico preciso com ultrassom durante a consulta.</p>
+                    <div class="step-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Diagnóstico</h3>
+                    <p>Diagnóstico preciso com ultrassom.</p>
                 </div>
-
                 <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>04. Planejamento</h3>
-                    <p>Definição do seu tratamento: técnicas ideais, número de visitas e tempo de acompanhamento.</p>
+                    <div class="step-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Cuidado</h3>
+                    <p>Acompanhamento por toda nossa equipe.</p>
                 </div>
-
-                <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>05. Objetivos</h3>
-                    <p>Definição de objetivos reais, alinhamento de expectativas para resultados possíveis.</p>
-                </div>
-
-                <div class="step reveal">
-                    <div class="step-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>06. Cuidado</h3>
-                    <p>Você será cuidado nos mínimos detalhes por toda nossa equipe nessa jornada.</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="https://wa.me/5581999999999" class="btn-primary btn-filled" style="padding: 1.25rem 3rem; font-size: 0.9rem;">
-                    <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Quero Agendar
-                </a>
             </div>
         </div>
     </section>
@@ -1273,8 +1157,8 @@
     <section class="cta-section" id="contato">
         <div class="container">
             <h2 class="reveal">Sua vida será muito mais leve e feliz sem as varizes</h2>
-            <p class="reveal">Ao decidir tratar suas varizes conosco, seu problema deixa de ser seu e passa a ser nosso. Vamos juntos nessa jornada.</p>
-            <a href="https://wa.me/5581999999999" class="btn-primary btn-hero btn-filled reveal" style="background: var(--color-accent); border-color: var(--color-accent);">
+            <p class="reveal">Ao decidir tratar suas varizes conosco, seu problema deixa de ser seu e passa a ser nosso.</p>
+            <a href="https://wa.me/5581995752214" class="btn-primary btn-hero btn-filled reveal" style="background: var(--color-accent); border-color: var(--color-accent);">
                 <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Agende Sua Avaliação Agora
             </a>
         </div>
@@ -1285,16 +1169,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div class="logo-text" style="color: var(--color-white); margin-bottom: 1.5rem;">
-                        <h1 style="font-family: var(--font-serif); font-size: 1.75rem;">Dr. Waldenio Barros</h1>
-                        <span style="font-size: 0.7rem; letter-spacing: 3px;">CIRURGIÃO VASCULAR</span>
+                    <div class="logo-text" style="color: var(--color-white); margin-bottom: 1rem;">
+                        <h1 style="font-family: var(--font-serif); font-size: 1.5rem;">Dr. Waldenio Barros</h1>
+                        <span style="font-size: 0.65rem; letter-spacing: 2px;">CIRURGIÃO VASCULAR</span>
                     </div>
-                    <p>Especialista em saúde vascular com abordagem criteriosa e individualizada. CRM-PE 34.279 | RQE 9.704/17.236</p>
+                    <p>CRM-PE 34.279 | RQE 9.704/17.236<br>Atendimento em Pernambuco e Paraíba.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/5581995752214" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -1304,52 +1186,27 @@
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#sobre">Sobre</a></li>
                         <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#sintomas">Sintomas</a></li>
-                        <li><a href="#processo">Processo</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Tratamentos</h4>
-                    <ul>
-                        <li><a href="#">Consulta Vascular</a></li>
-                        <li><a href="#">Ultrassom Vascular</a></li>
-                        <li><a href="#">Tratamento de Varizes</a></li>
-                        <li><a href="#">Cirurgia Vascular</a></li>
-                        <li><a href="#">Acompanhamento de Feridas</a></li>
+                        <li><a href="#locais">Locais de Atendimento</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column contact-info">
                     <h4>Contato</h4>
                     <p>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Principal, 1000 - Sala 501<br>Boa Viagem - Recife/PE<br>CEP: 51020-000</span>
-                    </p>
-                    <p>
-                        <i class="fas fa-phone"></i>
-                        <span>(81) 99999-9999</span>
-                    </p>
-                    <p>
-                        <i class="fas fa-envelope"></i>
-                        <span>contato@drwaldeniobarros.com.br</span>
-                    </p>
-                    <p>
-                        <i class="fas fa-clock"></i>
-                        <span>Seg - Sex: 8h às 18h<br>Sáb: 8h às 12h</span>
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(81) 99575-2214</span>
                     </p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Dr. Waldenio Barros. Todos os direitos reservados.</p>
-                <p>Desenvolvido com <i class="fas fa-heart" style="color: var(--color-accent);"></i> para sua saúde</p>
+                <p>&copy; 2026 Dr. Waldenio Barros. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/5581999999999" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <a href="https://wa.me/5581995752214" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1373,7 +1230,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -1396,70 +1252,17 @@
 
         // Reveal on Scroll
         const revealElements = document.querySelectorAll('.reveal');
-
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
-            const elementVisible = 150;
-
             revealElements.forEach((reveal) => {
                 const elementTop = reveal.getBoundingClientRect().top;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 100) {
                     reveal.classList.add('active');
                 }
             });
         };
-
         window.addEventListener('scroll', revealOnScroll);
-        // Trigger once on load
         revealOnScroll();
-
-        // Video Play Function
-        function playVideo() {
-            // Here you would typically open a video modal or redirect to a video
-            alert('Em breve: Vídeo de apresentação do Dr. Waldenio Barros');
-            // Example: Open YouTube video in modal
-            // window.open('https://youtube.com/watch?v=VIDEO_ID', '_blank');
-        }
-
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroBg = document.querySelector('.hero-bg img');
-            if (heroBg) {
-                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Service Cards Click
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const serviceName = this.querySelector('h3').textContent;
-                // Here you could redirect to a specific page or open a modal
-                console.log(`Clicked on: ${serviceName}`);
-            });
-        });
-
-        // Form Submission (if you add a form later)
-        function handleSubmit(e) {
-            e.preventDefault();
-            // Handle form submission
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        }
-
-        // Add animation delay to service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        // Add animation delay to steps
-        document.querySelectorAll('.step').forEach((step, index) => {
-            step.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        // Add animation delay to symptom items
-        document.querySelectorAll('.symptom-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.1}s`;
-        });
     </script>
 </body>
 </html>
