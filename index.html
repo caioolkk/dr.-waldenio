@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Waldenio Barros - Cirurgião Vascular. Excelência em tratamento de varizes e saúde vascular com abordagem personalizada e tecnologia moderna.">
+    <title>Dr. Waldenio Barros | Cirurgião Vascular</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #2c3e50;
+            --color-accent: #c9a962;
+            --color-bg: #faf9f7;
+            --color-bg-dark: #f0eee9;
+            --color-text: #4a4a4a;
+            --color-text-light: #7a7a7a;
+            --color-white: #ffffff;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent);
+            border-radius: 4px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 2rem 0;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-icon {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .logo-text {
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-text {
+            color: var(--color-primary);
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-white);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--color-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--color-white);
+            color: var(--color-white);
+            padding: 1rem 2.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        header.scrolled .btn-primary {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-filled {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .btn-filled:hover {
+            background: #b8984d;
+            border-color: #b8984d;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 1px;
+            background: var(--color-white);
+            transition: var(--transition);
+        }
+
+        header.scrolled .mobile-menu span {
+            background: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(44,62,80,0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            color: var(--color-white);
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 0.5s;
+            color: var(--color-accent);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 0.8s;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 1.1s;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 1.4s;
+        }
+
+        .btn-hero {
+            padding: 1.25rem 3rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-outline-light {
+            border-color: var(--color-white);
+            color: var(--color-white);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-white);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+        }
+
+        .scroll-indicator i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(10px);
+            }
+            60% {
+                transform: translateY(5px);
+            }
+        }
+
+        /* Section General */
+        section {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-bg-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-accent);
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .about-signature {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .about-signature p {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--color-secondary);
+        }
+
+        .about-signature span {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 10rem 0;
+        }
+
+        .video-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .video-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--color-accent);
+        }
+
+        .video-play-btn i {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            cursor: pointer;
+            group: true;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,26,26,0.95) 0%, transparent 100%);
+            padding: 3rem 2rem 2rem;
+            color: var(--color-white);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-overlay {
+            transform: translateY(0);
+        }
+
+        .service-overlay h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-overlay p {
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: var(--transition);
+            transition-delay: 0.1s;
+        }
+
+        .service-card:hover .service-overlay p {
+            opacity: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-accent);
+            text-decoration: none;
+            opacity: 0;
+            transition: var(--transition);
+            transition-delay: 0.2s;
+        }
+
+        .service-card:hover .service-link {
+            opacity: 1;
+        }
+
+        .service-link i {
+            transition: var(--transition);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Symptoms Section */
+        .symptoms {
+            background: var(--color-bg-dark);
+        }
+
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .symptom-item {
+            display: flex;
+            gap: 2rem;
+            padding: 2.5rem;
+            background: var(--color-white);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .symptom-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .symptom-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--color-accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .symptom-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+        }
+
+        .symptom-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-accent), transparent);
+            opacity: 0.3;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-white);
+            border: 1px solid var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .step:hover .step-icon {
+            background: var(--color-accent);
+            color: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        .step h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--color-accent);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .logo-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--color-accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--color-white);
+            text-decoration: none;
+            opacity: 0.8;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .contact-info i {
+            color: var(--color-accent);
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Animations on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .symptoms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: var(--color-primary);
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon">WB</div>
+                    <div class="logo-text">
+                        <h1>Dr. Waldenio Barros</h1>
+                        <span>Cirurgião Vascular</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sintomas">Sintomas</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="https://wa.me/5581999999999" class="btn-primary">Agendar Avaliação</a></li>
+                </ul>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1920&h=1080&fit=crop" alt="Medical Background">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Excelência em Saúde Vascular</p>
+                <h1 class="hero-title">Cuidado vascular com <em>precisão</em> e olhar <em>individualizado</em></h1>
+                <p class="hero-text">Avaliação, diagnóstico e acompanhamento em saúde vascular para pacientes que buscam segurança, clareza e uma conduta bem definida.</p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/5581999999999" class="btn-primary btn-hero btn-filled">
+                        <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Agendar Avaliação
+                    </a>
+                    <a href="#sobre" class="btn-primary btn-hero btn-outline-light">Conhecer o Médico</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop" alt="Dr. Waldenio Barros">
+                </div>
+                <div class="about-content reveal">
+                    <span class="section-tag">Sobre o Médico</span>
+                    <h2>Atendimento vascular com foco em diagnóstico preciso e decisão segura</h2>
+                    <p>Cada paciente chega com um contexto diferente, sintomas diferentes e necessidades próprias. Por isso, a avaliação vascular precisa ir além de uma análise superficial.</p>
+                    <p>O objetivo é compreender o quadro com precisão e indicar a melhor condução para cada caso, unindo ciência, experiência, tecnologia e muito comprometimento.</p>
+                    <p>Especialista em Cirurgia Vascular com atuação clínica e ecográfica, atendo em Pernambuco e Paraíba com uma abordagem criteriosa e individualizada.</p>
+                    
+                    <div class="about-signature">
+                        <p>Dr. Waldenio Barros</p>
+                        <span>CRM-PE 34.279 | RQE 9.704/17.236</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <span class="section-tag" style="color: var(--color-accent);">Conheça Minha Abordagem</span>
+            <h2>Assista e entenda como posso ajudar você</h2>
+            <div class="video-container" onclick="playVideo()">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&h=500&fit=crop" alt="Video Thumbnail" class="video-thumbnail">
+                <div class="video-play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Áreas de Atuação</span>
+                <h2 class="section-title">Atuação em saúde vascular</h2>
+                <p class="section-subtitle">Da avaliação inicial à conduta cirúrgica, com critério em cada etapa.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=800&fit=crop" alt="Consulta Vascular">
+                    <div class="service-overlay">
+                        <h3>Consulta Vascular</h3>
+                        <p>Avaliação clínica criteriosa para definir conduta com segurança.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=800&fit=crop" alt="Ultrassom Vascular">
+                    <div class="service-overlay">
+                        <h3>Ultrassom Vascular</h3>
+                        <p>Investigação por imagem para diagnóstico vascular preciso.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1551190862-9c8f34d6a76f?w=600&h=800&fit=crop" alt="Tratamento de Varizes">
+                    <div class="service-overlay">
+                        <h3>Tratamento de Varizes</h3>
+                        <p>Avaliação completa do quadro venoso e do impacto na rotina.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&h=800&fit=crop" alt="Procedimentos Vasculares">
+                    <div class="service-overlay">
+                        <h3>Procedimentos Vasculares</h3>
+                        <p>Indicação técnica conforme o quadro de cada paciente.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1584982751600-0f2944db13b0?w=600&h=800&fit=crop" alt="Acompanhamento de Feridas">
+                    <div class="service-overlay">
+                        <h3>Acompanhamento de Feridas</h3>
+                        <p>Investigação da causa e cuidado contínuo da cicatrização.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1551190862-9c8f34d6a76f?w=600&h=800&fit=crop" alt="Cirurgia Vascular">
+                    <div class="service-overlay">
+                        <h3>Cirurgia Vascular</h3>
+                        <p>Conduta cirúrgica indicada quando há critério clínico.</p>
+                        <a href="#" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section class="symptoms" id="sintomas">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Sinais de Alerta</span>
+                <h2 class="section-title">Seu corpo costuma dar sinais antes do problema avançar</h2>
+                <p class="section-subtitle">Peso nas pernas, inchaço recorrente, desconforto ao fim do dia, veias aparentes e feridas de difícil cicatrização são sinais que merecem atenção.</p>
+            </div>
+
+            <div class="symptoms-grid">
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">01</div>
+                    <div class="symptom-content">
+                        <h3>Peso e cansaço nas pernas</h3>
+                        <p>Sensação que se intensifica ao longo do dia, especialmente após longos períodos em pé ou sentado.</p>
+                    </div>
+                </div>
+
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">02</div>
+                    <div class="symptom-content">
+                        <h3>Inchaço recorrente</h3>
+                        <p>Especialmente em tornozelos e ao final do dia, indicando possível comprometimento circulatório.</p>
+                    </div>
+                </div>
+
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">03</div>
+                    <div class="symptom-content">
+                        <h3>Veias aparentes ou tortuosas</h3>
+                        <p>Mudanças visíveis no padrão venoso que podem indicar insuficiência venosa.</p>
+                    </div>
+                </div>
+
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">04</div>
+                    <div class="symptom-content">
+                        <h3>Desconforto ou dor localizada</h3>
+                        <p>Que interfere na rotina e no sono, sinalizando necessidade de avaliação.</p>
+                    </div>
+                </div>
+
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">05</div>
+                    <div class="symptom-content">
+                        <h3>Feridas que não cicatrizam</h3>
+                        <p>Cicatrização lenta exige investigação vascular adequada.</p>
+                    </div>
+                </div>
+
+                <div class="symptom-item reveal">
+                    <div class="symptom-number">06</div>
+                    <div class="symptom-content">
+                        <h3>Cãibras frequentes</h3>
+                        <p>Especialmente noturnas, podem estar relacionadas à circulação.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="processo">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Jornada do Paciente</span>
+                <h2 class="section-title">Quais os próximos passos?</h2>
+                <p class="section-subtitle">Não adianta tratar suas varizes com sessões isoladas e sem diagnóstico preciso. Para ter sucesso no seu tratamento, precisamos seguir alguns passos indispensáveis.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>01. Consulta</h3>
+                    <p>Consulta com duração de 1 hora para te conhecer e entender seu caso.</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>02. Avaliação</h3>
+                    <p>Avaliação detalhada de todas as suas varizes e vasinhos superficiais.</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>03. Diagnóstico</h3>
+                    <p>Diagnóstico preciso com ultrassom durante a consulta.</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>04. Planejamento</h3>
+                    <p>Definição do seu tratamento: técnicas ideais, número de visitas e tempo de acompanhamento.</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>05. Objetivos</h3>
+                    <p>Definição de objetivos reais, alinhamento de expectativas para resultados possíveis.</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>06. Cuidado</h3>
+                    <p>Você será cuidado nos mínimos detalhes por toda nossa equipe nessa jornada.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="https://wa.me/5581999999999" class="btn-primary btn-filled" style="padding: 1.25rem 3rem; font-size: 0.9rem;">
+                    <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Quero Agendar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <h2 class="reveal">Sua vida será muito mais leve e feliz sem as varizes</h2>
+            <p class="reveal">Ao decidir tratar suas varizes conosco, seu problema deixa de ser seu e passa a ser nosso. Vamos juntos nessa jornada.</p>
+            <a href="https://wa.me/5581999999999" class="btn-primary btn-hero btn-filled reveal" style="background: var(--color-accent); border-color: var(--color-accent);">
+                <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> Agende Sua Avaliação Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text" style="color: var(--color-white); margin-bottom: 1.5rem;">
+                        <h1 style="font-family: var(--font-serif); font-size: 1.75rem;">Dr. Waldenio Barros</h1>
+                        <span style="font-size: 0.7rem; letter-spacing: 3px;">CIRURGIÃO VASCULAR</span>
+                    </div>
+                    <p>Especialista em saúde vascular com abordagem criteriosa e individualizada. CRM-PE 34.279 | RQE 9.704/17.236</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#sintomas">Sintomas</a></li>
+                        <li><a href="#processo">Processo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Tratamentos</h4>
+                    <ul>
+                        <li><a href="#">Consulta Vascular</a></li>
+                        <li><a href="#">Ultrassom Vascular</a></li>
+                        <li><a href="#">Tratamento de Varizes</a></li>
+                        <li><a href="#">Cirurgia Vascular</a></li>
+                        <li><a href="#">Acompanhamento de Feridas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column contact-info">
+                    <h4>Contato</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Principal, 1000 - Sala 501<br>Boa Viagem - Recife/PE<br>CEP: 51020-000</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <span>(81) 99999-9999</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@drwaldeniobarros.com.br</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        <span>Seg - Sex: 8h às 18h<br>Sáb: 8h às 12h</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dr. Waldenio Barros. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart" style="color: var(--color-accent);"></i> para sua saúde</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5581999999999" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+
+        // Video Play Function
+        function playVideo() {
+            // Here you would typically open a video modal or redirect to a video
+            alert('Em breve: Vídeo de apresentação do Dr. Waldenio Barros');
+            // Example: Open YouTube video in modal
+            // window.open('https://youtube.com/watch?v=VIDEO_ID', '_blank');
+        }
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg img');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Service Cards Click
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const serviceName = this.querySelector('h3').textContent;
+                // Here you could redirect to a specific page or open a modal
+                console.log(`Clicked on: ${serviceName}`);
+            });
+        });
+
+        // Form Submission (if you add a form later)
+        function handleSubmit(e) {
+            e.preventDefault();
+            // Handle form submission
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        }
+
+        // Add animation delay to service cards
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add animation delay to steps
+        document.querySelectorAll('.step').forEach((step, index) => {
+            step.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add animation delay to symptom items
+        document.querySelectorAll('.symptom-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
